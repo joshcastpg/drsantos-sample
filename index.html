@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Propuesta de diseño web para Dr. Santos Cosmetic, medicina estética en San José, Costa Rica.">
+<title>Dr. Santos Cosmetic</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;600;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: dark editorial luxury. The logo's two offset corner lines become the frame around every key photo.
+   Black hero and treatments, Toast bands for the doctor and patient voices, Calm Brown band for international visitors. */
+:root {
+  --black: #000000;
+  --ink: #120d07;
+  --toast: #E5DFD0;
+  --white: #F9F9F9;
+  --brown: #57370D;
+  --gold: #FFE998;
+  --gold-mid: #C9A55A;
+  --gold-deep: #8A6428;
+  --gold-grad: linear-gradient(135deg, #FFE998 0%, #C9A55A 48%, #8A6428 100%);
+  --muted: rgba(229, 223, 208, 0.72);
+  --line: rgba(255, 233, 152, 0.28);
+  --line-dark: rgba(87, 55, 13, 0.35);
+  --font-display: "Outfit", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 400;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--black); z-index: 60; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+:root[data-lang="en"] .es { display: none !important; }
+:root:not([data-lang="en"]) .en { display: none !important; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.band { padding-block: clamp(64px, 9vw, 120px); }
+.band--toast { background: var(--toast); color: var(--ink); }
+.band--brown { background: var(--brown); color: var(--toast); }
+.band--ink { background: var(--ink); }
+
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+.eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin: 0 0 20px; }
+.band--toast .eyebrow { color: var(--brown); }
+.h2 { font-weight: 800; text-transform: uppercase; font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1; letter-spacing: -0.01em; }
+.h2 em { font-style: normal; font-weight: 200; text-transform: none; letter-spacing: 0; }
+.lead { font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300; max-width: 58ch; }
+.gold-text { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* offset-corner frame, from the DS monogram */
+.frame { position: relative; }
+.frame::before, .frame::after { content: ""; position: absolute; width: 62%; height: 44%; pointer-events: none; z-index: 2; }
+.frame::before { top: -12px; right: -12px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+.frame::after { bottom: -12px; left: -12px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.band--toast .frame::before, .band--toast .frame::after { border-color: var(--brown); }
+.frame img { width: 100%; height: 100%; object-fit: cover; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; font-family: var(--font-display); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--gold); transition: background 0.25s, color 0.25s, transform 0.25s; cursor: pointer; }
+.btn--gold { background: var(--gold-grad); color: #1a1006; border-color: transparent; }
+.btn--gold:hover { transform: translateY(-2px); }
+.btn--line { color: var(--gold); background: transparent; }
+.btn--line:hover { background: rgba(255, 233, 152, 0.1); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 72px; }
+.nav__logo img { height: 46px; width: auto; }
+.nav__links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; font-family: var(--font-display); font-weight: 300; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.nav__links a { text-decoration: none; color: var(--toast); padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 0.2s, color 0.2s; }
+.nav__links a:hover { color: var(--gold); border-color: var(--gold); }
+.nav__right { display: flex; align-items: center; gap: 16px; }
+.lang { display: flex; border: 1px solid var(--line); }
+.lang button { font: 600 0.72rem var(--font-display); letter-spacing: 0.14em; padding: 8px 12px; background: transparent; color: var(--muted); border: 0; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--gold); color: #1a1006; }
+.nav .btn { padding: 11px 20px; font-size: 0.72rem; }
+
+/* hero */
+.hero { padding-block: clamp(40px, 6vw, 84px) clamp(56px, 7vw, 96px); }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero__kicker { font-family: var(--font-display); font-weight: 300; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin: 0 0 28px; }
+.hero h1 { font-size: clamp(2.6rem, 6.4vw, 5.8rem); line-height: 0.94; text-transform: uppercase; font-weight: 800; letter-spacing: -0.015em; }
+.hero h1 .thin { display: block; font-weight: 200; text-transform: none; font-size: 0.72em; letter-spacing: 0; padding-block: 0.08em; }
+.hero__sub { margin: 32px 0 36px; font-weight: 300; font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 50ch; color: var(--toast); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero__photo { aspect-ratio: 4 / 5; max-height: 720px; margin-inline: auto; width: 100%; }
+.frame img.hero__mark { position: absolute; z-index: 3; left: -18px; bottom: 28px; width: clamp(84px, 11vw, 124px); height: auto; object-fit: contain; background: var(--black); padding: 10px; border: 1px solid var(--line); }
+.hero__note { position: absolute; z-index: 3; right: 16px; bottom: 16px; background: rgba(0,0,0,0.78); border: 1px solid var(--line); padding: 12px 16px; font-size: 0.78rem; letter-spacing: 0.04em; max-width: 220px; backdrop-filter: blur(6px); }
+.hero__note b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+
+/* values strip */
+.values { border-block: 1px solid var(--line); background: var(--black); }
+.values .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px; padding-block: 22px; font-family: var(--font-display); font-weight: 600; font-size: clamp(0.8rem, 1.6vw, 1.05rem); letter-spacing: 0.34em; text-transform: uppercase; }
+.values span.dot { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); }
+.values .tag { color: var(--gold); letter-spacing: 0.16em; text-transform: none; font-weight: 300; }
+
+/* about */
+.about__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(36px, 6vw, 96px); align-items: center; }
+.about__photo { max-width: 420px; aspect-ratio: 500 / 700; margin-inline: auto; width: 100%; background: #fff; }
+.about__photo img { object-position: top; }
+.about h2 { margin-bottom: 28px; }
+.about p { margin: 0 0 18px; max-width: 58ch; }
+.pillars { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line-dark); }
+.pillars li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line-dark); align-items: baseline; }
+.pillars b { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brown); font-size: 1.1rem; }
+.pillars span { font-size: 0.95rem; }
+
+/* treatments */
+.treat__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 32px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+.cat { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.7fr) minmax(0, 0.75fr); gap: clamp(24px, 4vw, 56px); padding-block: clamp(32px, 4vw, 52px); border-top: 1px solid var(--line); align-items: start; }
+.cat:last-of-type { border-bottom: 1px solid var(--line); }
+.cat__name small { display: block; font-family: var(--font-display); font-weight: 300; letter-spacing: 0.26em; text-transform: uppercase; font-size: 0.74rem; color: var(--gold); margin-bottom: 12px; }
+.cat__name h3 { font-size: clamp(1.9rem, 3.6vw, 3rem); font-weight: 800; text-transform: uppercase; line-height: 1; }
+.cat__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 26px 36px; margin: 0; padding: 0; list-style: none; }
+.cat__list h4 { margin: 0 0 4px; font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--toast); letter-spacing: 0.01em; }
+.cat__list p { margin: 0; font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.6; }
+.cat__list .tag { display: inline-block; margin-left: 8px; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--line); padding: 1px 7px; vertical-align: middle; font-weight: 500; }
+.cat__img { aspect-ratio: 4 / 5; width: 100%; max-width: 260px; justify-self: end; }
+.treat__note { margin-top: 28px; font-size: 0.85rem; color: var(--muted); max-width: 72ch; }
+
+/* experience mosaic */
+.mosaic { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 20vw, 260px); gap: 12px; margin-top: 44px; }
+.mosaic > * { overflow: hidden; position: relative; }
+.mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
+.mosaic > *:hover img { transform: scale(1.04); }
+.mosaic .big { grid-column: span 2; grid-row: span 2; }
+.exp__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 32px; align-items: end; }
+
+/* visitors */
+.visit__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(36px, 6vw, 90px); align-items: center; }
+.visit h2 { margin-bottom: 24px; }
+.visit .eyebrow { color: var(--gold); }
+.steps { list-style: none; margin: 40px 0 0; padding: 0; counter-reset: s; display: grid; gap: 0; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding: 22px 0; border-top: 1px solid rgba(255, 233, 152, 0.3); align-items: start; }
+.steps li:last-child { border-bottom: 1px solid rgba(255, 233, 152, 0.3); }
+.steps li::before { content: counter(s); font-family: var(--font-display); font-weight: 200; font-size: 3rem; line-height: 1; color: var(--gold); }
+.steps b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 4px; }
+.steps span { font-weight: 300; font-size: 0.95rem; color: var(--toast); }
+.visit__photo { aspect-ratio: 3 / 4; width: 100%; max-width: 420px; margin-inline: auto; }
+
+/* voices */
+.voices__grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); margin-top: 48px; align-items: start; }
+.quote--lead blockquote { margin: 0; font-family: var(--font-display); font-weight: 300; font-size: clamp(1.4rem, 2.6vw, 2.1rem); line-height: 1.3; }
+.quote--lead blockquote::before { content: "“"; display: block; font-weight: 800; font-size: 5rem; line-height: 0.6; color: var(--brown); margin-bottom: 8px; }
+.quote cite { display: block; margin-top: 20px; font-style: normal; font-family: var(--font-display); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
+.quote-side { display: grid; gap: 0; border-top: 1px solid var(--line-dark); }
+.quote-side .quote { padding: 26px 0; border-bottom: 1px solid var(--line-dark); }
+.quote-side blockquote { margin: 0; font-size: 1.05rem; font-weight: 500; }
+.voices__foot { margin-top: 40px; font-size: 0.8rem; color: rgba(18, 13, 7, 0.7); max-width: 70ch; }
+
+/* faq */
+.faq__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; padding: 22px 40px 22px 0; position: relative; font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-weight: 200; font-size: 2rem; color: var(--gold); transition: transform 0.25s; }
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq details p { margin: 0 0 24px; max-width: 60ch; color: var(--muted); font-weight: 300; }
+
+/* booking */
+.book__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.contact { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.contact li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.contact small { font-family: var(--font-display); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.contact a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.contact a:hover { border-color: var(--gold); }
+.form { border: 1px solid var(--line); padding: clamp(24px, 4vw, 44px); background: linear-gradient(160deg, rgba(255, 233, 152, 0.07), rgba(255, 233, 152, 0.01)); display: grid; gap: 22px; }
+.form label { display: grid; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.form input, .form select, .form textarea { font: 400 1rem var(--font-body); color: var(--white); background: rgba(0,0,0,0.5); border: 1px solid var(--line); padding: 14px; width: 100%; border-radius: 0; letter-spacing: 0; text-transform: none; }
+.form textarea { min-height: 96px; resize: vertical; }
+.form select option { background: #111; color: #fff; }
+.form .btn { justify-content: center; width: 100%; }
+.form__hint { margin: 0; font-size: 0.78rem; color: var(--muted); }
+
+/* footer */
+.foot { border-top: 1px solid var(--line); padding-block: 56px 40px; background: var(--black); }
+.foot__grid { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: 40px; align-items: start; }
+.foot img { height: 84px; width: auto; }
+.foot p { margin: 0 0 12px; font-size: 0.78rem; color: var(--muted); max-width: 80ch; line-height: 1.6; }
+.foot__credit { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-family: var(--font-display); font-weight: 300; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.foot__credit a { color: var(--gold); text-decoration: none; }
+
+.wa-float { position: fixed; z-index: 55; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px; background: var(--gold-grad); color: #1a1006; font-family: var(--font-display); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; box-shadow: 0 8px 28px rgba(0,0,0,0.55); }
+.wa-float svg { width: 20px; height: 20px; }
+
+@media (max-width: 1020px) {
+  .nav__links { display: none; }
+  .cat { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+  .cat__img { display: none; }
+}
+@media (max-width: 860px) {
+  .hero__grid, .about__grid, .treat__head, .exp__head, .visit__grid, .voices__grid, .faq__grid, .book__grid, .foot__grid, .cat { grid-template-columns: minmax(0, 1fr); }
+  .hero__photo { max-width: 460px; }
+  .about__photo { max-width: 340px; }
+  .visit__photo { display: none; }
+  .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mosaic .big { grid-column: span 2; grid-row: span 1; }
+  .pillars li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .contact li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .nav .btn { display: none; }
+  .frame img.hero__mark { left: 4px; }
+}
+@media (max-width: 480px) {
+  .wa-float span { display: none; }
+  .wa-float { padding: 14px; }
+  .hero__note { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"/><path fill="currentColor" d="M9.2 8.6c.2-.4.5-.4.8-.4h.4c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.2-.1.3 0 .5.5.9 1.3 1.6 2.3 2 .2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.2.1.3.3.3.5 0 .6-.3 1.2-.9 1.5-.5.3-1.2.3-1.8.1-2.4-.8-4.2-2.5-5.2-4.8-.2-.6-.1-1.4.3-1.9z"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav__logo" href="#inicio" aria-label="Dr. Santos"><img src="img/logo-light.png" alt="Dr. Santos, monograma DS" width="42" height="46"></a>
+    <ul class="nav__links">
+      <li><a href="#doctor"><span class="es">El doctor</span><span class="en">The doctor</span></a></li>
+      <li><a href="#tratamientos"><span class="es">Tratamientos</span><span class="en">Treatments</span></a></li>
+      <li><a href="#visitantes"><span class="es">Visitantes</span><span class="en">Visitors</span></a></li>
+      <li><a href="#pacientes"><span class="es">Pacientes</span><span class="en">Patients</span></a></li>
+      <li><a href="#preguntas"><span class="es">Preguntas</span><span class="en">FAQ</span></a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn--gold" href="#agendar"><span class="es">Reservar</span><span class="en">Reserve</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="hero__kicker"><span class="es">Dr. Luis Santos · Medicina estética · San José, Costa Rica</span><span class="en">Dr. Luis Santos · Aesthetic medicine · San José, Costa Rica</span></p>
+        <h1>
+          <span class="es">Resultados <span class="thin">que se ven</span><span class="gold-text">como vos.</span></span>
+          <span class="en">Results <span class="thin">that look</span><span class="gold-text">like you.</span></span>
+        </h1>
+        <p class="hero__sub">
+          <span class="es">Medicina estética con rigor médico y resultados naturales, para residentes y visitantes de todo el mundo. De los bioestimuladores a la cirugía facial y corporal, cada procedimiento lleva la firma de la #ExperienciaSantos.</span>
+          <span class="en">Aesthetic medicine with medical rigor and natural results, for residents and visitors from around the world. From biostimulators to facial and body surgery, every procedure carries the signature of the #ExperienciaSantos.</span>
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--gold" href="#agendar"><svg><use href="#i-wa"/></svg><span class="es">Reservá tu valoración</span><span class="en">Reserve your consultation</span></a>
+          <a class="btn btn--line" href="#tratamientos"><span class="es">Descubrir tratamientos</span><span class="en">Discover treatments</span></a>
+        </div>
+      </div>
+      <div class="frame hero__photo">
+        <img src="img/hero.jpg" alt="Paciente durante un tratamiento de relleno de labios" width="1200" height="1632" fetchpriority="high">
+        <img class="hero__mark" src="img/logo-gold.png" alt="" width="104" height="113" style="height:auto">
+        <div class="hero__note"><b><span class="es">Consulta privada</span><span class="en">Private consultation</span></b>WhatsApp +506 7132-9559</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="values">
+    <div class="wrap">
+      <span><span class="es">Confiable</span><span class="en">Trustworthy</span></span><span class="dot"></span>
+      <span><span class="es">Natural</span><span class="en">Natural</span></span><span class="dot"></span>
+      <span><span class="es">Discreto</span><span class="en">Discreet</span></span><span class="dot"></span>
+      <span class="tag">#ExperienciaSantos</span>
+    </div>
+  </div>
+
+  <section class="band band--toast about" id="doctor">
+    <div class="wrap about__grid">
+      <div class="frame about__photo"><img src="img/doctor.jpg" alt="Dr. Luis Santos, médico y cirujano" width="500" height="930"></div>
+      <div>
+        <p class="eyebrow"><span class="es">El doctor</span><span class="en">The doctor</span></p>
+        <h2 class="h2"><span class="es">Un médico de confianza, <em>con trato cercano.</em></span><span class="en">A doctor you can trust, <em>with a personal touch.</em></span></h2>
+        <p class="lead es">El Dr. Luis Santos es médico y cirujano, con amplia trayectoria en medicina general y estética. Lo distinguen su trato cercano, su profesionalismo y un compromiso genuino con ofrecer a cada paciente una experiencia única.</p>
+        <p class="lead en">Dr. Luis Santos is a physician and surgeon with extensive experience in general and aesthetic medicine. He is distinguished by his warm manner, his professionalism and a genuine commitment to offering every patient a singular experience.</p>
+        <p class="es">En Dr. Santos Cosmetic acompañamos a residentes y visitantes internacionales para que se vean y se sientan en su mejor versión, a través de una medicina estética segura y de resultados naturales.</p>
+        <p class="en">At Dr. Santos Cosmetic we accompany residents and international visitors so that they look and feel their best, through safe aesthetic medicine and natural results.</p>
+        <ul class="pillars">
+          <li><b><span class="es">Confiable</span><span class="en">Trustworthy</span></b><span><span class="es">Explicamos con claridad y nunca prometemos de más.</span><span class="en">We explain with clarity and never promise more than we can deliver.</span></span></li>
+          <li><b>Natural</b><span><span class="es">Resultados armónicos, con precisión médica en cada procedimiento.</span><span class="en">Harmonious results, with medical precision in every procedure.</span></span></li>
+          <li><b><span class="es">Discreto</span><span class="en">Discreet</span></b><span><span class="es">Cada paciente recibe una atención personal y reservada.</span><span class="en">Every patient receives personal, private care.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="tratamientos">
+    <div class="wrap">
+      <div class="treat__head">
+        <div>
+          <p class="eyebrow"><span class="es">Tratamientos</span><span class="en">Treatments</span></p>
+          <h2 class="h2"><span class="es">Tratamientos a la medida <em>de cada persona.</em></span><span class="en">Treatments tailored <em>to each person.</em></span></h2>
+        </div>
+        <p class="lead"><span class="es">Ya sea que prefieras comenzar de forma gradual o buscar un cambio más notorio, todo parte de una valoración personalizada.</span><span class="en">Whether you prefer to begin gradually or seek a more noticeable change, everything starts with a personal consultation.</span></p>
+      </div>
+
+      <article class="cat">
+        <div class="cat__name"><small><span class="es">Facial</span><span class="en">Facial</span></small><h3><span class="es">Rostro</span><span class="en">Face</span></h3></div>
+        <ul class="cat__list">
+          <li><h4>Botox full face</h4><p><span class="es">Previene y suaviza las arrugas, mejora la firmeza y devuelve frescura al rostro.</span><span class="en">Prevents and softens wrinkles, improves firmness and restores freshness to the face.</span></p></li>
+          <li><h4>Gouri</h4><p><span class="es">El primer bioestimulador de colágeno líquido, para un efecto full face.</span><span class="en">The first liquid collagen biostimulator, designed for a full-face effect.</span></p></li>
+          <li><h4><span class="es">Relleno de labios</span><span class="en">Lip filler</span></h4><p><span class="es">Volumen e hidratación en proporciones armónicas.</span><span class="en">Volume and hydration in harmonious proportions.</span></p></li>
+          <li><h4><span class="es">Relleno de ojeras</span><span class="en">Under-eye filler</span></h4><p><span class="es">Suaviza el surco y devuelve descanso a la mirada.</span><span class="en">Softens the hollow and brings rest back to the eyes.</span></p></li>
+          <li><h4><span class="es">Marcaje mandibular</span><span class="en">Jawline definition</span></h4><p><span class="es">Define el contorno del rostro con sutileza.</span><span class="en">Defines the contour of the face with subtlety.</span></p></li>
+          <li><h4><span class="es">Rinomodelación</span><span class="en">Non-surgical nose shaping</span></h4><p><span class="es">Perfila la nariz sin necesidad de cirugía.</span><span class="en">Refines the nose without the need for surgery.</span></p></li>
+        </ul>
+        <div class="frame cat__img"><img src="img/face.jpg" alt="Aplicación de Botox en la frente" width="1000" height="1500" loading="lazy"></div>
+      </article>
+
+      <article class="cat">
+        <div class="cat__name"><small><span class="es">Facial y corporal</span><span class="en">Face and body</span></small><h3><span class="es">Piel</span><span class="en">Skin</span></h3></div>
+        <ul class="cat__list">
+          <li><h4><span class="es">Láser CO2</span><span class="en">CO2 laser</span></h4><p><span class="es">Renueva la piel y mejora textura, manchas y cicatrices, con un efecto glow genuino.</span><span class="en">Renews the skin and refines texture, spots and scars, for a genuine glow.</span></p></li>
+          <li><h4>PRP</h4><p><span class="es">Plasma rico en plaquetas que estimula la regeneración de la piel, en rostro y cuerpo.</span><span class="en">Platelet-rich plasma that stimulates skin regeneration, for face and body.</span></p></li>
+          <li><h4>Enzimas PBSerum</h4><p><span class="es">Protocolo de enzimas para zonas faciales y corporales.</span><span class="en">An enzyme protocol for facial and body areas.</span></p></li>
+        </ul>
+        <div class="frame cat__img"><img src="img/skin.jpg" alt="Paciente recibiendo un tratamiento facial" width="1000" height="1777" loading="lazy"></div>
+      </article>
+
+      <article class="cat">
+        <div class="cat__name"><small><span class="es">Corporal</span><span class="en">Body</span></small><h3><span class="es">Cuerpo</span><span class="en">Body</span></h3></div>
+        <ul class="cat__list">
+          <li><h4>Peptonas</h4><p><span class="es">Tratamiento corporal que trabaja zonas específicas.</span><span class="en">A body treatment that works on specific areas.</span></p></li>
+          <li><h4>Vitalchip</h4><p><span class="es">Tratamiento corporal, precedido de una valoración.</span><span class="en">A body treatment, preceded by a consultation.</span></p></li>
+          <li><h4><span class="es">Escleroterapia</span><span class="en">Sclerotherapy</span></h4><p><span class="es">Tratamiento para eliminar várices y vena araña.</span><span class="en">A treatment to remove varicose and spider veins.</span></p></li>
+        </ul>
+        <div class="frame cat__img"><img src="img/body.jpg" alt="Médica realizando un procedimiento a una paciente" width="1000" height="1500" loading="lazy"></div>
+      </article>
+
+      <article class="cat">
+        <div class="cat__name"><small><span class="es">Procedimientos quirúrgicos</span><span class="en">Surgical procedures</span></small><h3><span class="es">Cirugía</span><span class="en">Surgery</span></h3></div>
+        <ul class="cat__list">
+          <li><h4><span class="es">Bichectomía</span><span class="en">Buccal fat removal</span></h4><p><span class="es">Procedimiento rápido y seguro que retira las bolsas de grasa de las mejillas, para un rostro más estilizado y armónico.</span><span class="en">A quick, safe procedure that removes the fat pads of the cheeks, for a more sculpted, harmonious face.</span></p></li>
+          <li><h4><span class="es">Tensado de brazos</span><span class="en">Arm lift</span></h4><p><span class="es">Elimina la flacidez y recupera la firmeza, para unos brazos más definidos y juveniles.</span><span class="en">Removes laxity and restores firmness, for more defined, youthful arms.</span></p></li>
+          <li><h4><span class="es">Liposucción</span><span class="en">Liposuction</span></h4><p><span class="es">Retira depósitos de grasa localizada que no ceden con dieta ni ejercicio.</span><span class="en">Removes localized fat deposits that do not respond to diet or exercise.</span></p></li>
+        </ul>
+        <div class="frame cat__img"><img src="img/care.jpg" alt="Paciente en consulta con guantes rosados de la especialista" width="1000" height="1500" loading="lazy"></div>
+      </article>
+      <p class="treat__note"><span class="es">Cada cirugía se realiza con el máximo cuidado y acompañamiento profesional, atendiendo cada detalle de tu experiencia. Los resultados varían según cada persona.</span><span class="en">Every surgery is performed with the utmost care and professional support, attending to every detail of your experience. Results vary from person to person.</span></p>
+    </div>
+  </section>
+
+  <section class="band band--ink" aria-labelledby="exp-title">
+    <div class="wrap">
+      <div class="exp__head">
+        <div>
+          <p class="eyebrow"><span class="es">La experiencia</span><span class="en">The experience</span></p>
+          <h2 class="h2" id="exp-title"><span class="es">Rigor médico, <em>honestidad</em> y #ExperienciaSantos</span><span class="en">Medical rigor, <em>honesty</em> and #ExperienciaSantos</span></h2>
+        </div>
+        <p class="lead"><span class="es">Una clínica pensada para que cada paciente se sienta seguro, informado y tranquilo desde la primera consulta.</span><span class="en">A clinic designed so that every patient feels safe, informed and at ease from the first consultation.</span></p>
+      </div>
+      <div class="mosaic">
+        <div class="big"><img src="img/doctor-action.jpg" alt="El doctor durante un procedimiento facial" width="1600" height="1066" loading="lazy"></div>
+        <div><img src="img/detail.jpg" alt="Detalle de un procedimiento" width="900" height="1600" loading="lazy"></div>
+        <div><img src="img/vial.jpg" alt="Preparación del producto" width="900" height="1521" loading="lazy"></div>
+        <div><img src="img/syringe.jpg" alt="Preparación de un tratamiento" width="900" height="1350" loading="lazy"></div>
+        <div><img src="img/lips.jpg" alt="Detalle de un tratamiento de labios" width="1000" height="1500" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--brown visit" id="visitantes">
+    <div class="wrap visit__grid">
+      <div>
+        <p class="eyebrow"><span class="es">Visitantes internacionales</span><span class="en">International visitors</span></p>
+        <h2 class="h2"><span class="es">Si visitás Costa Rica, <em>planificá tu tratamiento antes de llegar.</em></span><span class="en">Visiting Costa Rica? <em>Plan your treatment before you arrive.</em></span></h2>
+        <p class="lead"><span class="es">Adaptamos tu tratamiento a tu itinerario, con atención en español e inglés.</span><span class="en">We adapt your treatment to your itinerary, with care in Spanish and English.</span></p>
+        <ol class="steps">
+          <li><div><b><span class="es">Escribinos por WhatsApp</span><span class="en">Write to us on WhatsApp</span></b><span><span class="es">Contanos qué deseás lograr y compartí tus fotos.</span><span class="en">Tell us what you wish to achieve and share your photos.</span></span></div></li>
+          <li><div><b><span class="es">Recibí tu valoración</span><span class="en">Receive your consultation</span></b><span><span class="es">Una valoración personalizada antes de tu llegada, sin compromiso.</span><span class="en">A personal consultation before you arrive, with no obligation.</span></span></div></li>
+          <li><div><b><span class="es">Reservá durante tu estadía</span><span class="en">Reserve during your stay</span></b><span><span class="es">Coordinamos tu cita en San José en el momento que mejor te convenga.</span><span class="en">We arrange your appointment in San José at the time that suits you best.</span></span></div></li>
+        </ol>
+      </div>
+      <div class="frame visit__photo"><img src="img/clinic.jpg" alt="Sala de tratamiento luminosa de la clínica" width="1100" height="1650" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="band band--toast" id="pacientes">
+    <div class="wrap">
+      <p class="eyebrow"><span class="es">Pacientes</span><span class="en">Patients</span></p>
+      <h2 class="h2"><span class="es">En palabras de <em>quienes ya lo vivieron.</em></span><span class="en">In the words of <em>those who have lived it.</em></span></h2>
+      <div class="voices__grid">
+        <figure class="quote quote--lead" style="margin:0">
+          <blockquote>
+            <span class="es">Lo recomiendo muchísimo. Es un médico con gran calidad humana y un trato muy especial, sobre todo muy cuidadoso con sus recomendaciones y procedimientos.</span>
+            <span class="en">I recommend him wholeheartedly. A doctor with great human warmth and a very special manner, above all very careful with his recommendations and procedures.</span>
+          </blockquote>
+          <cite><span class="es">Paciente · Instagram</span><span class="en">Patient · Instagram</span></cite>
+        </figure>
+        <div class="quote-side">
+          <figure class="quote" style="margin:0"><blockquote><span class="es">El mejor doctor que he tenido en toda mi vida. Súper recomendado.</span><span class="en">The best doctor I have had in my whole life. Highly recommended.</span></blockquote><cite><span class="es">Paciente · Instagram</span><span class="en">Patient · Instagram</span></cite></figure>
+          <figure class="quote" style="margin:0"><blockquote><span class="es">Excelente doctor, muy dedicado.</span><span class="en">Excellent doctor, very dedicated.</span></blockquote><cite><span class="es">Paciente · Instagram</span><span class="en">Patient · Instagram</span></cite></figure>
+          <figure class="quote" style="margin:0"><blockquote><span class="es">El mejor como doctor y como persona.</span><span class="en">The best as a doctor and as a person.</span></blockquote><cite><span class="es">Paciente · Instagram</span><span class="en">Patient · Instagram</span></cite></figure>
+        </div>
+      </div>
+      <p class="voices__foot"><span class="es">Muestra de diseño: comentarios públicos de pacientes en Instagram. En el sitio final se publicarán con su consentimiento, junto a una galería de resultados.</span><span class="en">Design sample: public patient comments from Instagram. On the final site they will be published with consent, alongside a results gallery.</span></p>
+    </div>
+  </section>
+
+  <section class="band faq" id="preguntas">
+    <div class="wrap faq__grid">
+      <div>
+        <p class="eyebrow"><span class="es">Preguntas frecuentes</span><span class="en">FAQ</span></p>
+        <h2 class="h2"><span class="es">Preguntas que <em>suelen hacernos.</em></span><span class="en">Questions we are <em>often asked.</em></span></h2>
+      </div>
+      <div>
+        <details open><summary><span class="es">¿Cómo reservo mi valoración?</span><span class="en">How do I book my consultation?</span></summary><p><span class="es">Escribinos por WhatsApp al +506 7132-9559. Te responderemos, entenderemos qué deseás lograr y coordinaremos tu cita.</span><span class="en">Write to us on WhatsApp at +506 7132-9559. We will reply, understand what you wish to achieve and arrange your appointment.</span></p></details>
+        <details><summary><span class="es">¿Puedo consultar antes de viajar?</span><span class="en">Can I consult before I travel?</span></summary><p><span class="es">Sí. Compartí tus fotos y tus objetivos por WhatsApp y recibí una valoración personalizada antes de llegar a Costa Rica.</span><span class="en">Yes. Share your photos and goals on WhatsApp and receive a personal consultation before arriving in Costa Rica.</span></p></details>
+        <details><summary><span class="es">¿Cómo sé qué tratamiento es ideal para mí?</span><span class="en">How do I know which treatment suits me?</span></summary><p><span class="es">Todo comienza con una valoración personalizada. No existe una fórmula única: hay una opción para cada necesidad y estilo de vida.</span><span class="en">Everything begins with a personal consultation. There is no single formula: there is an option for every need and lifestyle.</span></p></details>
+        <details><summary><span class="es">¿Las cirugías son seguras?</span><span class="en">Are the surgeries safe?</span></summary><p><span class="es">Cada cirugía se realiza con el máximo cuidado y acompañamiento profesional, atendiendo cada detalle de tu experiencia.</span><span class="en">Every surgery is performed with the utmost care and professional support, attending to every detail of your experience.</span></p></details>
+        <details><summary><span class="es">¿Atienden en inglés?</span><span class="en">Do you offer care in English?</span></summary><p><span class="es">Sí. Atendemos en español y en inglés, siempre con la misma voz serena y segura.</span><span class="en">Yes. We offer care in Spanish and English, always in the same calm, reassuring voice.</span></p></details>
+        <details><summary><span class="es">¿Los resultados están garantizados?</span><span class="en">Are results guaranteed?</span></summary><p><span class="es">Los resultados varían según cada persona. Te explicamos con claridad qué es realista para vos, sin prometer de más.</span><span class="en">Results vary from person to person. We explain with clarity what is realistic for you, without promising more than we can deliver.</span></p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--ink" id="agendar">
+    <div class="wrap book__grid">
+      <div>
+        <p class="eyebrow"><span class="es">Reservas</span><span class="en">Reservations</span></p>
+        <h2 class="h2"><span class="es">Reservá tu <em>valoración.</em></span><span class="en">Reserve your <em>consultation.</em></span></h2>
+        <p class="lead" style="margin-top:24px"><span class="es">Escribinos y recibí atención personalizada. Respondemos por WhatsApp.</span><span class="en">Write to us and receive personal attention. We reply on WhatsApp.</span></p>
+        <ul class="contact">
+          <li><small>WhatsApp</small><a href="https://wa.me/50671329559" target="_blank" rel="noopener">+506 7132-9559</a></li>
+          <li><small>Instagram</small><a href="https://www.instagram.com/drsantoscr/" target="_blank" rel="noopener">@drsantoscr</a></li>
+          <li><small><span class="es">Ubicación</span><span class="en">Location</span></small><span><span class="es">San José, Costa Rica. Confirmamos la dirección exacta al reservar.</span><span class="en">San José, Costa Rica. We confirm the exact address when you reserve.</span></span></li>
+          <li><small><span class="es">Horario</span><span class="en">Hours</span></small><span><span class="es">Lun a vie 9:00 a 18:00 · Sáb 9:00 a 13:00 (horario de muestra)</span><span class="en">Mon to Fri 9:00 to 18:00 · Sat 9:00 to 13:00 (sample hours)</span></span></li>
+        </ul>
+      </div>
+      <form class="form" id="wa-form" onsubmit="return false" novalidate>
+        <label for="f-name"><span class="es">Tu nombre</span><span class="en">Your name</span><input id="f-name" type="text" autocomplete="name" data-ph-es="Nombre y apellido" data-ph-en="Full name" placeholder="Nombre y apellido"></label>
+        <label for="f-treat"><span class="es">Tratamiento de interés</span><span class="en">Treatment of interest</span>
+          <select id="f-treat">
+            <option value="Valoración general">Valoración general / General assessment</option>
+            <option value="Botox full face">Botox full face</option>
+            <option value="Bioestimulador Gouri">Gouri</option>
+            <option value="Rellenos / Fillers">Rellenos / Fillers</option>
+            <option value="Láser CO2">Láser CO2 / CO2 laser</option>
+            <option value="PRP">PRP</option>
+            <option value="Escleroterapia">Escleroterapia / Sclerotherapy</option>
+            <option value="Bichectomía">Bichectomía / Buccal fat removal</option>
+            <option value="Liposucción o tensado de brazos">Liposucción, tensado de brazos / Liposuction, arm lift</option>
+          </select>
+        </label>
+        <label for="f-where"><span class="es">Tu ubicación</span><span class="en">Your location</span>
+          <select id="f-where">
+            <option value="res">Resido en Costa Rica / I live in Costa Rica</option>
+            <option value="visit">Visito Costa Rica / I am visiting</option>
+          </select>
+        </label>
+        <label for="f-when"><span class="es">Fechas del viaje (opcional)</span><span class="en">Travel dates (optional)</span><input id="f-when" type="text" data-ph-es="Ej. 12 al 20 de diciembre" data-ph-en="E.g. December 12 to 20" placeholder="Ej. 12 al 20 de diciembre"></label>
+        <a class="btn btn--gold" id="wa-link" href="https://wa.me/50671329559" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span class="es">Continuar en WhatsApp</span><span class="en">Continue on WhatsApp</span></a>
+        <p class="form__hint"><span class="es">Se abrirá WhatsApp con tu mensaje listo para enviar.</span><span class="en">WhatsApp will open with your message ready to send.</span></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <img src="img/logo-gold.png" alt="Dr. Santos" width="77" height="84">
+      <div>
+        <p><span class="es">Dr. Santos Cosmetic · Medicina estética · San José, Costa Rica. La información de este sitio es de carácter general y no sustituye una valoración médica. Los resultados varían según cada persona. Las fotografías de pacientes se publican únicamente con su consentimiento.</span><span class="en">Dr. Santos Cosmetic · Aesthetic medicine · San José, Costa Rica. The information on this site is of a general nature and does not replace a medical consultation. Results vary from person to person. Patient photographs are published only with consent.</span></p>
+      </div>
+    </div>
+    <div class="foot__credit">
+      <span><span class="es">Propuesta de diseño preparada para el Dr. Santos</span><span class="en">Design proposal prepared for Dr. Santos</span></span>
+      <a href="https://pathlineglobal.com" target="_blank" rel="noopener">Pathline Global</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" href="https://wa.me/50671329559" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg><span class="es">Escribinos</span><span class="en">Message us</span></a>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var lang = "es";
+  try { var saved = localStorage.getItem("ds-lang"); if (saved === "en" || saved === "es") lang = saved; } catch (e) {}
+  var NUM = "50671329559";
+
+  function msg() {
+    var name = (document.getElementById("f-name").value || "").trim();
+    var treat = document.getElementById("f-treat").value;
+    var visit = document.getElementById("f-where").value === "visit";
+    var when = (document.getElementById("f-when").value || "").trim();
+    var t;
+    if (lang === "en") {
+      t = "Hello Dr. Santos, " + (name ? "my name is " + name + ". " : "") + "I am interested in: " + treat + ". " + (visit ? "I am visiting Costa Rica" + (when ? " (" + when + ")" : "") + ". " : "I live in Costa Rica. ") + "I would like to reserve a personal consultation.";
+    } else {
+      t = "Hola Dr. Santos, " + (name ? "soy " + name + ". " : "") + "me interesa: " + treat + ". " + (visit ? "Estoy de visita en Costa Rica" + (when ? " (" + when + ")" : "") + ". " : "Resido en Costa Rica. ") + "Me gustaría reservar una valoración personalizada.";
+    }
+    return t;
+  }
+  function refresh() {
+    var href = "https://wa.me/" + NUM + "?text=" + encodeURIComponent(msg());
+    document.getElementById("wa-link").href = href;
+  }
+  function apply(l) {
+    lang = l;
+    root.setAttribute("data-lang", l);
+    root.setAttribute("lang", l);
+    document.querySelectorAll("[data-set-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === l)); });
+    document.querySelectorAll("[data-ph-es]").forEach(function (el) { el.placeholder = el.getAttribute("data-ph-" + l); });
+    refresh();
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var l = b.getAttribute("data-set-lang");
+      try { localStorage.setItem("ds-lang", l); } catch (e) {}
+      apply(l);
+    });
+  });
+  ["f-name", "f-treat", "f-where", "f-when"].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener("input", refresh);
+    el.addEventListener("change", refresh);
+  });
+  apply(lang);
+})();
+</script>
+</body>
+</html>
