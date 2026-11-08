@@ -7,7 +7,7 @@
 <meta name="description" content="Medicina estética con rigor médico y resultados naturales en San José, Costa Rica. Botox, bioestimuladores, rellenos, láser y cirugía facial y corporal. Atención en español e inglés. Aesthetic medicine in San José, Costa Rica.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="canonical" href="https://__DOMAIN__/">
+<link rel="canonical" href="https://www.drsantoscostarica.com/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta property="og:site_name" content="Dr. Santos Cosmetic">
 <meta property="og:title" content="Dr. Santos Cosmetic · Medicina estética en San José, Costa Rica">
 <meta property="og:description" content="Medicina estética con rigor médico y resultados naturales en San José, Costa Rica. Botox, bioestimuladores, rellenos, láser y cirugía facial y corporal. Atención en español e inglés. Aesthetic medicine in San José, Costa Rica.">
-<meta property="og:url" content="https://__DOMAIN__/">
-<meta property="og:image" content="https://__DOMAIN__/og-image.jpg">
+<meta property="og:url" content="https://www.drsantoscostarica.com/">
+<meta property="og:image" content="https://www.drsantoscostarica.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="El Dr. Luis Santos frente al logo de Dr. Santos Cosmetic">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dr. Santos Cosmetic · Medicina estética en San José, Costa Rica">
 <meta name="twitter:description" content="Medicina estética con rigor médico y resultados naturales en San José, Costa Rica. Botox, bioestimuladores, rellenos, láser y cirugía facial y corporal. Atención en español e inglés. Aesthetic medicine in San José, Costa Rica.">
-<meta name="twitter:image" content="https://__DOMAIN__/og-image.jpg">
+<meta name="twitter:image" content="https://www.drsantoscostarica.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;600;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -33,13 +33,13 @@
 {
   "@context": "https://schema.org",
   "@type": ["MedicalBusiness", "LocalBusiness"],
-  "@id": "https://__DOMAIN__/#clinic",
+  "@id": "https://www.drsantoscostarica.com/#clinic",
   "name": "Dr. Santos Cosmetic",
   "alternateName": "Dr Santos - Medicina Estética",
   "description": "Medicina estética con rigor médico y resultados naturales en San José, Costa Rica.",
-  "url": "https://__DOMAIN__/",
-  "image": "https://__DOMAIN__/og-image.jpg",
-  "logo": "https://__DOMAIN__/icon-512.png",
+  "url": "https://www.drsantoscostarica.com/",
+  "image": "https://www.drsantoscostarica.com/og-image.jpg",
+  "logo": "https://www.drsantoscostarica.com/icon-512.png",
   "telephone": "+50671329559",
   "address": { "@type": "PostalAddress", "addressLocality": "San José", "addressCountry": "CR" },
   "areaServed": "Costa Rica",
@@ -49,7 +49,8 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
   ],
   "founder": { "@type": "Physician", "name": "Dr. Luis Santos", "jobTitle": "Médico y cirujano" },
-  "sameAs": ["https://www.instagram.com/drsantoscr/"]
+  "sameAs": ["https://www.instagram.com/drsantoscr/"],
+  "potentialAction": { "@type": "ReserveAction", "name": "Agendar cita", "target": { "@type": "EntryPoint", "urlTemplate": "https://calendar.app.google/GUpWgYVJ57gvdBXG9", "actionPlatform": ["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"] } }
 }
 </script>
 <style>
@@ -250,6 +251,23 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
 .faq details::details-content { block-size: 0; overflow: hidden; transition: block-size 0.5s var(--ease-out), content-visibility 0.5s allow-discrete; }
 .faq details[open]::details-content { block-size: auto; }
 
+/* appointment */
+.band--stone { background: var(--stone); }
+.cita__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(36px, 6vw, 90px); align-items: center; }
+.cita .eyebrow { color: var(--espresso); }
+.cita h2 { margin-bottom: 24px; }
+.cita .lead { color: var(--espresso); }
+.cita .frame::before, .cita .frame::after { border-color: var(--espresso); }
+.cita__photo { aspect-ratio: 4 / 5; width: 100%; max-width: 400px; margin-inline: auto; }
+.cita__steps { list-style: none; margin: 36px 0 0; padding: 0; counter-reset: c; display: grid; border-top: 1px solid rgba(61, 54, 48, 0.35); }
+.cita__steps li { counter-increment: c; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(61, 54, 48, 0.35); align-items: baseline; font-weight: 400; color: var(--espresso); }
+.cita__steps li::before { content: counter(c); font-family: var(--font-display); font-weight: 200; font-size: 2.2rem; line-height: 1; }
+.cita__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 36px; }
+.cita__alt { font-size: 0.9rem; color: var(--espresso); }
+.cita__alt a { font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--espresso); }
+.cita__note { margin: 18px 0 0; font-size: 0.8rem; color: var(--umber); }
+.btn--lg { padding: 18px 34px; font-size: 0.88rem; }
+
 /* booking */
 .book__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
 .contact { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line-strong); }
@@ -301,13 +319,13 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
   .cat__img { display: none; }
 }
 @media (max-width: 860px) {
-  .hero__grid, .about__grid, .team__head, .treat__head, .exp__head, .visit__grid, .voices__grid, .faq__grid, .book__grid, .foot__grid, .cat { grid-template-columns: minmax(0, 1fr); }
+  .hero__grid, .about__grid, .cita__grid, .team__head, .treat__head, .exp__head, .visit__grid, .voices__grid, .faq__grid, .book__grid, .foot__grid, .cat { grid-template-columns: minmax(0, 1fr); }
   .hero__photo { max-width: 460px; }
   .about__photo { max-width: 340px; }
   .team__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .person--c { grid-column: 1 / -1; order: -1; max-width: 420px; margin-inline: auto; width: 100%; }
   .person--a, .person--b { margin-top: 0; }
-  .visit__photo { display: none; }
+  .visit__photo, .cita__photo { display: none; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 190px; }
   .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mosaic .big { grid-column: span 2; grid-row: span 1; }
@@ -334,6 +352,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M3.5 10h17M8 3v4M16 3v4"/><path fill="currentColor" d="M8 13.5h2v2H8zM11 13.5h2v2h-2zM14 13.5h2v2h-2z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"/><path fill="currentColor" d="M9.2 8.6c.2-.4.5-.4.8-.4h.4c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.2-.1.3 0 .5.5.9 1.3 1.6 2.3 2 .2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.2.1.3.3.3.5 0 .6-.3 1.2-.9 1.5-.5.3-1.2.3-1.8.1-2.4-.8-4.2-2.5-5.2-4.8-.2-.6-.1-1.4.3-1.9z"/></symbol>
 </svg>
 
@@ -356,7 +375,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
         <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
         <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-      <a class="btn btn--gold" href="#agendar"><span class="es">Reservar</span><span class="en">Reserve</span></a>
+      <a class="btn btn--gold" href="#cita"><span class="es">Agendar</span><span class="en">Book</span></a>
     </div>
   </div>
 </header>
@@ -375,7 +394,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
           <span class="en">Aesthetic medicine with medical rigor and natural results, for residents and visitors from around the world. From biostimulators to facial and body surgery, every procedure carries the signature of the #ExperienciaSantos.</span>
         </p>
         <div class="hero__cta" data-r style="--d:.4s">
-          <a class="btn btn--gold" href="#agendar"><svg><use href="#i-wa"/></svg><span class="es">Reservá tu valoración</span><span class="en">Reserve your consultation</span></a>
+          <a class="btn btn--gold" href="https://calendar.app.google/GUpWgYVJ57gvdBXG9" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span class="es">Agendá tu cita</span><span class="en">Book your appointment</span></a>
           <a class="btn btn--line" href="#tratamientos"><span class="es">Descubrir tratamientos</span><span class="en">Discover treatments</span></a>
         </div>
       </div>
@@ -580,7 +599,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
         <h2 class="h2"><span class="es">Preguntas que <em>suelen hacernos.</em></span><span class="en">Questions we are <em>often asked.</em></span></h2>
       </div>
       <div>
-        <details open><summary><span class="es">¿Cómo reservo mi valoración?</span><span class="en">How do I book my consultation?</span></summary><p><span class="es">Escribinos por WhatsApp al +506 7132-9559. Te responderemos, entenderemos qué deseás lograr y coordinaremos tu cita.</span><span class="en">Write to us on WhatsApp at +506 7132-9559. We will reply, understand what you wish to achieve and arrange your appointment.</span></p></details>
+        <details open><summary><span class="es">¿Cómo reservo mi valoración?</span><span class="en">How do I book my consultation?</span></summary><p><span class="es">Agendá en línea desde esta página, a cualquier hora, o escribinos por WhatsApp al +506 7132-9559 y coordinamos tu cita.</span><span class="en">Book online from this page, at any hour, or write to us on WhatsApp at +506 7132-9559 and we will arrange your appointment.</span></p></details>
         <details><summary><span class="es">¿Puedo consultar antes de viajar?</span><span class="en">Can I consult before I travel?</span></summary><p><span class="es">Sí. Compartí tus fotos y tus objetivos por WhatsApp y recibí una valoración personalizada antes de llegar a Costa Rica.</span><span class="en">Yes. Share your photos and goals on WhatsApp and receive a personal consultation before arriving in Costa Rica.</span></p></details>
         <details><summary><span class="es">¿Cómo sé qué tratamiento es ideal para mí?</span><span class="en">How do I know which treatment suits me?</span></summary><p><span class="es">Todo comienza con una valoración personalizada. No existe una fórmula única: hay una opción para cada necesidad y estilo de vida.</span><span class="en">Everything begins with a personal consultation. There is no single formula: there is an option for every need and lifestyle.</span></p></details>
         <details><summary><span class="es">¿Las cirugías son seguras?</span><span class="en">Are the surgeries safe?</span></summary><p><span class="es">Cada cirugía se realiza con el máximo cuidado y acompañamiento profesional, atendiendo cada detalle de tu experiencia.</span><span class="en">Every surgery is performed with the utmost care and professional support, attending to every detail of your experience.</span></p></details>
@@ -590,11 +609,32 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
     </div>
   </section>
 
+  <section class="band band--stone cita" id="cita">
+    <div class="wrap cita__grid">
+      <div data-r>
+        <p class="eyebrow"><span class="es">Agenda en línea</span><span class="en">Online booking</span></p>
+        <h2 class="h2"><span class="es">Agendá tu cita, <em>cuando te convenga.</em></span><span class="en">Book your appointment, <em>when it suits you.</em></span></h2>
+        <p class="lead"><span class="es">Elegí el día y la hora que mejor te acomoden, desde cualquier lugar y a cualquier hora. Recibís la confirmación en tu correo.</span><span class="en">Choose the day and time that suit you best, from anywhere and at any hour. You receive your confirmation by email.</span></p>
+        <ol class="cita__steps" data-stagger>
+          <li><span class="es">Elegí tu fecha y hora.</span><span class="en">Choose your date and time.</span></li>
+          <li><span class="es">Completá tus datos.</span><span class="en">Fill in your details.</span></li>
+          <li><span class="es">Recibí tu confirmación.</span><span class="en">Receive your confirmation.</span></li>
+        </ol>
+        <div class="cita__cta">
+          <a class="btn btn--gold btn--lg" id="cal-link" href="https://calendar.app.google/GUpWgYVJ57gvdBXG9" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span class="es">Agendar mi cita</span><span class="en">Book my appointment</span></a>
+          <span class="cita__alt"><span class="es">¿Preferís escribirnos? </span><span class="en">Prefer to write? </span><a href="https://wa.me/50671329559" target="_blank" rel="noopener">WhatsApp</a></span>
+        </div>
+        <p class="cita__note"><span class="es">Se abre nuestro calendario en una pestaña nueva. Atención en español e inglés.</span><span class="en">Our calendar opens in a new tab. Care in Spanish and English.</span></p>
+      </div>
+      <div class="frame cita__photo"><div class="ph"><img data-px src="img/cita-doctor.jpg" alt="El Dr. Santos sentado en su consultorio" width="900" height="1350" loading="lazy" style="object-position:50% 70%"></div></div>
+    </div>
+  </section>
+
   <section class="band" id="agendar">
     <div class="wrap book__grid">
       <div>
-        <p class="eyebrow"><span class="es">Reservas</span><span class="en">Reservations</span></p>
-        <h2 class="h2"><span class="es">Reservá tu <em>valoración.</em></span><span class="en">Reserve your <em>consultation.</em></span></h2>
+        <p class="eyebrow"><span class="es">Contacto</span><span class="en">Contact</span></p>
+        <h2 class="h2"><span class="es">Escribinos <em>por WhatsApp.</em></span><span class="en">Write to us <em>on WhatsApp.</em></span></h2>
         <p class="lead" style="margin-top:24px"><span class="es">Escribinos y recibí atención personalizada. Respondemos por WhatsApp.</span><span class="en">Write to us and receive personal attention. We reply on WhatsApp.</span></p>
         <ul class="contact" data-stagger>
           <li><small>WhatsApp</small><a href="https://wa.me/50671329559" target="_blank" rel="noopener">+506 7132-9559</a></li>
