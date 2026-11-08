@@ -327,8 +327,8 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; co
   .person--a, .person--b { margin-top: 0; }
   .visit__photo, .cita__photo { display: none; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 190px; }
-  .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .mosaic .big { grid-column: span 2; grid-row: span 1; }
+  .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 38vw, 320px); }
+  .mosaic .big { grid-column: span 2; grid-row: span 2; }
   .pillars li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .contact li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .nav .btn { display: none; }
